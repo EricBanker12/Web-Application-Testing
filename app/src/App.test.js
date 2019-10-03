@@ -108,3 +108,58 @@ test('STRIKE button resets ball and strike count on strike 3', () => {
   expect(ballCounter.textContent).toBe('0')
   expect(strikeCounter.textContent).toBe('1')
 })
+
+test('FOUL button increases strike count by 1, up to 2', () => {
+  const doc = render(<App />)
+
+  const ballCounter = doc.getByTestId('ball')
+  expect(ballCounter.textContent).toBe('0')
+  
+  const strikeCounter = doc.getByTestId('strike')
+  expect(strikeCounter.textContent).toBe('0')
+
+  const foulButton = doc.getByText(/FOUL/i)
+  fireEvent.click(foulButton)
+  expect(ballCounter.textContent).toBe('0')
+  expect(strikeCounter.textContent).toBe('1')
+
+  fireEvent.click(foulButton)
+  expect(ballCounter.textContent).toBe('0')
+  expect(strikeCounter.textContent).toBe('2')
+
+  fireEvent.click(foulButton)
+  expect(ballCounter.textContent).toBe('0')
+  expect(strikeCounter.textContent).toBe('2')
+})
+
+test('HIT button resets ball and strike count to 0', () => {
+  const doc = render(<App />)
+
+  const ballCounter = doc.getByTestId('ball')
+  expect(ballCounter.textContent).toBe('0')
+  
+  const strikeCounter = doc.getByTestId('strike')
+  expect(strikeCounter.textContent).toBe('0')
+
+  const strikeButton = doc.getByTestId('strikeButton')
+  fireEvent.click(strikeButton)
+  expect(strikeCounter.textContent).toBe('1')
+
+  const ballButton = doc.getByTestId('ballButton')
+  fireEvent.click(ballButton)
+  expect(ballCounter.textContent).toBe('1')
+
+  const hitButton = doc.getByText(/HIT/i)
+  fireEvent.click(hitButton)
+  expect(ballCounter.textContent).toBe('0')
+  expect(strikeCounter.textContent).toBe('0')
+
+  fireEvent.click(strikeButton)
+  fireEvent.click(strikeButton)
+  expect(ballCounter.textContent).toBe('0')
+  expect(strikeCounter.textContent).toBe('2')
+
+  fireEvent.click(hitButton)
+  expect(ballCounter.textContent).toBe('0')
+  expect(strikeCounter.textContent).toBe('0')
+})
