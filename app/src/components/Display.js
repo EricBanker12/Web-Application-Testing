@@ -6,11 +6,11 @@ function Display(props) {
             <h3>At Bat: #{props.number} {props.name}</h3>
             <div>
                 <div>
-                    <h4>{props.ball}</h4>
+                    <span className="score" id="ball">{props.ball}</span>
                     <h4>BALL</h4>
                 </div>
                 <div>
-                    <h4>{props.strike}</h4>
+                    <span className="score" id="strike">{props.strike}</span>
                     <h4>STRIKE</h4>
                 </div>
                 {/* <div>

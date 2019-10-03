@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Dashboard from './components/Dashboard'
+import Display from './components/Display';
 
 function App() {
     const [game, setGame] = React.useState({
@@ -38,6 +39,7 @@ function App() {
 
     return (
         <div className="App">
+            <Display {...game} />
             <Dashboard onSubmit={setBatter} onButton={buttonHandler} />
         </div>
     );
