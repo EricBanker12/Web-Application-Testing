@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Dashboard from './components/Dashboard'
 import Display from './components/Display';
@@ -38,7 +39,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="App col-sm-6 mx-auto">
             <Display {...game} />
             <Dashboard onSubmit={setBatter} onButton={buttonHandler} />
         </div>

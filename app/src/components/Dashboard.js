@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form, FormGroup, Input, Button } from 'reactstrap'
 
 import useInput from '../hooks/useInput'
 
@@ -8,11 +9,11 @@ function Dashboard(props) {
 
     return (
         <div>
-            <form onSubmit={e=>{props.onSubmit(e, number, name)}}>
-                <h4>At Bat:</h4>
-                <div>
+            <h4>At Bat:</h4>
+            <Form className="row" onSubmit={e=>{props.onSubmit(e, number, name)}}>
+                <div className="col-3">
                     <label htmlFor="number">Number</label>
-                    <input
+                    <Input
                         id="number"
                         type="number"
                         placeholder="0-99"
@@ -22,9 +23,9 @@ function Dashboard(props) {
                         onChange={numberHandler}
                     />
                 </div>
-                <div>
+                <div className="col-9">
                     <label htmlFor="name">Name</label>
-                    <input
+                    <Input
                         id="name"
                         type="text"
                         placeholder="Full Name"
@@ -32,13 +33,13 @@ function Dashboard(props) {
                         onChange={nameHandler}
                     />
                 </div>
-                <button type="submit">SET AT BAT</button>
-            </form>
-            <div>
-                <button name="ball" data-testid="ballButton" onClick={props.onButton}>BALL</button>
-                <button name="strike" data-testid="strikeButton" onClick={props.onButton}>STRIKE</button>
-                <button name="foul" onClick={props.onButton}>FOUL</button>
-                <button name="hit" onClick={props.onButton}>HIT</button>
+                <Button className="m-3 w-100" type="submit">SET AT BAT</Button>
+            </Form>
+            <div className="d-flex justify-content-between">
+                <Button name="ball" data-testid="ballButton" onClick={props.onButton}>BALL</Button>
+                <Button name="strike" data-testid="strikeButton" onClick={props.onButton}>STRIKE</Button>
+                <Button name="foul" onClick={props.onButton}>FOUL</Button>
+                <Button name="hit" onClick={props.onButton}>HIT</Button>
             </div>
         </div>
     )
