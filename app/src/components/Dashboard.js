@@ -35,8 +35,8 @@ function Dashboard(props) {
                 <button type="submit">SET AT BAT</button>
             </form>
             <div>
-                <button name="ball" onClick={props.onButton}>BALL</button>
-                <button name="strike" onClick={props.onButton}>STRIKE</button>
+                <button name="ball" data-testid="ballButton" onClick={props.onButton}>BALL</button>
+                <button name="strike" data-testid="strikeButton" onClick={props.onButton}>STRIKE</button>
                 <button name="foul" onClick={props.onButton}>FOUL</button>
                 <button name="hit" onClick={props.onButton}>HIT</button>
             </div>
