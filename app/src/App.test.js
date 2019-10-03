@@ -13,6 +13,15 @@ test('renders count of balls and strikes', () => {
   doc.getByTestId('strike')
 })
 
+test('renders buttons for BALL, STRIKE, FOUL, and HIT', () => {
+  const doc = render(<App />)
+
+  doc.getByTestId('ballButton')
+  doc.getByTestId('strikeButton')
+  doc.getByText(/FOUL/i)
+  doc.getByText(/HIT/i)
+})
+
 test('BALL button increases ball count by 1', () => {
   const doc = render(<App />)
   
