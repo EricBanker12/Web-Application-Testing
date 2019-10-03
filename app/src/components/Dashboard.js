@@ -8,7 +8,7 @@ function Dashboard(props) {
 
     return (
         <div>
-            <form onSubmit={()=>{props.onSubmit(number, name)}}>
+            <form onSubmit={e=>{props.onSubmit(e, number, name)}}>
                 <h4>At Bat:</h4>
                 <div>
                     <label htmlFor="number">Number</label>
@@ -35,10 +35,10 @@ function Dashboard(props) {
                 <button type="submit">SET AT BAT</button>
             </form>
             <div>
-                <button name="BALL" onClick={props.onButton}>BALL</button>
-                <button name="STRIKE" onClick={props.onButton}>STRIKE</button>
-                <button name="FOUL" onClick={props.onButton}>FOUL</button>
-                <button name="HIT" onClick={props.onButton}>HIT</button>
+                <button name="ball" onClick={props.onButton}>BALL</button>
+                <button name="strike" onClick={props.onButton}>STRIKE</button>
+                <button name="foul" onClick={props.onButton}>FOUL</button>
+                <button name="hit" onClick={props.onButton}>HIT</button>
             </div>
         </div>
     )
